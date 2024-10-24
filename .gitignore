@@ -1,0 +1,8 @@
+# Source
+docker-credential-helpers*.tar.*
+
+# fedpkg artifacts
+clog
+docker-credential-helpers-*/
+.build*.log
+**.rpm
