@@ -26,6 +26,7 @@ License:        BSD-3-Clause AND MIT
 URL:            %{gourl}
 Source0:        %{gosource}
 Source1:        go-vendor-tools.toml
+Patch0:         0000-secretservice-get-secret-deref-fix.patch
 
 BuildRequires:  go-vendor-tools
 BuildRequires:  libsecret-devel
