@@ -7,8 +7,8 @@
 
 # https://github.com/moby/buildkit
 %global goipath         github.com/docker/docker-credential-helpers
-%global tag             v0.8.2
-Version:                0.8.2
+%global tag             v0.9.0
+Version:                0.9.0
 
 %gometa -L -f
 
@@ -26,7 +26,6 @@ License:        BSD-3-Clause AND MIT
 URL:            %{gourl}
 Source0:        %{gosource}
 Source1:        go-vendor-tools.toml
-Patch0:         0000-secretservice-get-secret-deref-fix.patch
 
 BuildRequires:  go-vendor-tools
 BuildRequires:  libsecret-devel
