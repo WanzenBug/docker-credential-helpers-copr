@@ -7,8 +7,8 @@
 
 # https://github.com/moby/buildkit
 %global goipath         github.com/docker/docker-credential-helpers
-%global tag             v0.9.0
-Version:                0.9.0
+%global tag             v0.9.1
+Version:                0.9.1
 
 %gometa -L -f
 
