@@ -1,6 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:base"],
+  "automerge": true,
   "customManagers": [
     {
       "customType": "regex",
@@ -13,7 +14,7 @@
     {
       "customType": "regex",
       "fileMatch": ["\\.spec$"],
-      "matchStrings": ["^Version:\\s+(?<currentValue>[^\\s]+)"],
+      "matchStrings": ["Version:\\s+(?<currentValue>[^\\s]+)"],
       "depNameTemplate": "docker/docker-credential-helpers",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$"
