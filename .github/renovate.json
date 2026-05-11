@@ -6,7 +6,8 @@
       "customType": "regex",
       "fileMatch": ["\\.spec$"],
       "matchStrings": [
-        "%global tag\\s+v(?<currentValue>[^\\s]+)\\s"
+        "%global tag\\s+v(?<currentValue>[^\\s]+)",
+        "^Version:\\s+(?<currentValue>[^\\s]+)"
       ],
       "depNameTemplate": "docker/docker-credential-helpers",
       "datasourceTemplate": "github-releases",
