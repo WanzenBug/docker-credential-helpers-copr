@@ -1,0 +1,16 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:base"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["\\.spec$"],
+      "matchStrings": [
+        "%global tag\\s+v(?<currentValue>[^\\s]+)\\s"
+      ],
+      "depNameTemplate": "docker/docker-credential-helpers",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    }
+  ]
+}
