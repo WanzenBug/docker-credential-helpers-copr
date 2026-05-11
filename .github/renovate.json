@@ -5,10 +5,15 @@
     {
       "customType": "regex",
       "fileMatch": ["\\.spec$"],
-      "matchStrings": [
-        "%global tag\\s+v(?<currentValue>[^\\s]+)",
-        "^Version:\\s+(?<currentValue>[^\\s]+)"
-      ],
+      "matchStrings": ["%global tag\\s+v(?<currentValue>[^\\s]+)"],
+      "depNameTemplate": "docker/docker-credential-helpers",
+      "datasourceTemplate": "github-releases",
+      "extractVersionTemplate": "^v(?<version>.*)$"
+    },
+    {
+      "customType": "regex",
+      "fileMatch": ["\\.spec$"],
+      "matchStrings": ["^Version:\\s+(?<currentValue>[^\\s]+)"],
       "depNameTemplate": "docker/docker-credential-helpers",
       "datasourceTemplate": "github-releases",
       "extractVersionTemplate": "^v(?<version>.*)$"
