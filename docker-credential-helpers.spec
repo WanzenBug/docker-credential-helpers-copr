@@ -5,7 +5,7 @@
 %global debug_package %{nil}
 %global __requires_exclude %{?__requires_exclude:%{__requires_exclude}|}^golang\\(.*\\)$
 
-# https://github.com/moby/buildkit
+# https://github.com/docker/docker-credential-helpers
 %global goipath         github.com/docker/docker-credential-helpers
 %global tag             v0.9.7
 Version:                0.9.7
