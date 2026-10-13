@@ -1,0 +1,36 @@
+name: Build
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  fedpkg-local:
+    runs-on: ubuntu-latest
+    container: registry.fedoraproject.org/fedora:latest
+    steps:
+      - name: Install tools
+        run: dnf -y install fedpkg git rpmdevtools 'dnf5-command(builddep)'
+
+      - uses: actions/checkout@v4
+        with:
+          # %autorelease needs the git history
+          fetch-depth: 0
+
+      - name: Mark workspace as safe for git
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
+
+      - name: Download sources
+        run: spectool -g docker-credential-helpers.spec
+
+      - name: Install build dependencies
+        run: |
+          dnf -y builddep docker-credential-helpers.spec
+          # Resolve the dynamic %generate_buildrequires as well
+          rpmbuild -br --define "_sourcedir $PWD" --define "_srcrpmdir $PWD/buildreqs" \
+            docker-credential-helpers.spec || [ $? -eq 11 ]
+          dnf -y builddep buildreqs/*.rpm
+
+      - name: Build
+        run: fedpkg --release "f$(rpm -E %fedora)" local
