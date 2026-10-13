@@ -13,7 +13,7 @@ jobs:
       - name: Install tools
         run: dnf -y install fedpkg git rpmdevtools 'dnf5-command(builddep)'
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
         with:
           # %autorelease needs the git history
           fetch-depth: 0
