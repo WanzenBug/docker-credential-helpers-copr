@@ -7,8 +7,8 @@
 
 # https://github.com/docker/docker-credential-helpers
 %global goipath         github.com/docker/docker-credential-helpers
-%global tag             v0.9.12
-Version:                0.9.12
+%global tag             v0.9.13
+Version:                0.9.13
 
 %gometa -L -f
 
